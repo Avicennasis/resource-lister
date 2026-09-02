@@ -24,7 +24,7 @@ def process(process_config):
         pagination_attributes = process_config["pagination_attributes"]
 
     object_list = []
-    # YES: generate seperate output file for each account
+    # YES: generate separate output file for each account
     if attributes["account_split"].lower() == "yes":
         for account in accounts:
             object_list = []

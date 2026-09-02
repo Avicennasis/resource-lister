@@ -17,8 +17,8 @@ OUTPUT_DIVIDER = '''
 
 DISCLAIMER = '''
 DISCLAIMER : \n
-This is experimental NO CODE Python Intractive Utility to list AWS resources activities.
-To generate the list of AWS Resources Utility will make boto3  List API calls on configured accounts.These API calls will applied to your API Account Quota
+This is experimental NO CODE Python Interactive Utility to list AWS resources activities.
+To generate the list of AWS Resources Utility will make boto3  List API calls on configured accounts.These API calls will be applied to your API Account Quota
 If destination of output as set S3 , Utility will upload generated result on S3 bucket .
 '''
 

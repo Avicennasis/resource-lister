@@ -11,17 +11,17 @@ logger = logging.getLogger()
 
 def print_configure_utility():
     """
-    : Print the utility configuraiton to console
+    : Print the utility configuration to console
     """
     attributes = dict(config_util.ConfigAttributes.get_config_attributes())
-    CONFIGURATION = "CURRENT CONFIGURATIONS :\n 1. Format Type (csv/json) : {} \n 2. Output To (print/file/s3/none) :{}\n 3. Generate only required Columns (yes/no): {}\n 4. Generate seperate file for each AWS Account (yes/no) : {}\n 5. S3 Bucket : {}\n 6. Date append to file extension : {}\n".format(
+    CONFIGURATION = "CURRENT CONFIGURATIONS :\n 1. Format Type (csv/json) : {} \n 2. Output To (print/file/s3/none) :{}\n 3. Generate only required Columns (yes/no): {}\n 4. Generate separate file for each AWS Account (yes/no) : {}\n 5. S3 Bucket : {}\n 6. Date append to file extension : {}\n".format(
         attributes["format_type"], attributes["output_to"], attributes["required"], attributes["account_split"], attributes["s3_bucket"], attributes["file_append_date"])
     print(CONFIGURATION)
 
 
 def modify_formate_type():
     """
-    : modifys format_type in config.json
+    : modifies format_type in config.json
     """
     input_json = dict()
     input_json_value = menu_util.process_inputs(
@@ -32,13 +32,13 @@ def modify_formate_type():
     config_attributes["format_type"] = format_type
     config_util.ConfigAttributes.update_config_attributes(config_attributes)
     # Print statement to print output to command prompt
-    print("Format Type is succesfully updated  to {}.".format(format_type))
+    print("Format Type is successfully updated  to {}.".format(format_type))
     print_configure_utility()
 
 
 def modify_output_to():
     """
-    : modifys output_to in config.json
+    : modifies output_to in config.json
     """
     input_json = dict()
     input_json_value = menu_util.process_inputs(
@@ -49,7 +49,7 @@ def modify_output_to():
     config_attributes["output_to"] = output_to
     config_util.ConfigAttributes.update_config_attributes(config_attributes)
     # Print statement to print output to command prompt
-    print("Output Type is succesfully updated  to {}.".format(output_to))
+    print("Output Type is successfully updated  to {}.".format(output_to))
     print_configure_utility()
 
 
@@ -83,7 +83,7 @@ def modify_account_wise():
     config_attributes["account_split"] = account_split
     config_util.ConfigAttributes.update_config_attributes(config_attributes)
     # Print statement to print output to command prompt
-    print(" Generate seperate file for each AWS Account updated  to {}.".format(
+    print(" Generate separate file for each AWS Account updated  to {}.".format(
         account_split))
     print_configure_utility()
 

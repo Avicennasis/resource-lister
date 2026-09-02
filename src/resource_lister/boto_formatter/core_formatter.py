@@ -94,18 +94,18 @@ def __process_service_func_response(function_config, json_config, format_type, r
     :param function_config : function defined in service_config.json
     :param json_config: reference response
     :param format_type: csv,json
-    :param required_only: if present filter the result for required onlydata
+    :param required_only: if present filter the result for required only data
     :param response : response of base function
-    :prefix_columns : Addtional prefix columns to print
+    :prefix_columns : Additional prefix columns to print
     :pagination :if present json list is part of pagination
-    :return: formatted list of flattend JSON objects
+    :return: formatted list of flattened JSON objects
     """
     response_format = function_config["response_format"]
     result_keys = None
     result = []
     if "result_keys" in function_config.keys():
         result_keys = function_config["result_keys"]
-    # Come columns breaks in csv format so added this condition to exclued these columns
+    # Some columns breaks in csv format so added this condition to exclude these columns
     if required_only is None and format_type is not None:
         if "csv_enforced_required_only" in function_config.keys() and format_type == "csv":
             required_only = "Yes"
@@ -140,7 +140,7 @@ def __format_ouput(result, format_type):
     """
     :param result : Flatten JSON list
     :param format_type: currently supported only csv
-    :return: formatted list of comma seperated string
+    :return: formatted list of comma separated string
     """
     if format_type == "csv":
         return json_util.get_csv_data(result)
@@ -152,12 +152,12 @@ def __ouput_to(service_name, function_name, result, output_to, format_type, outp
     """
     :param service_name :service_name like s3, lambda
     :param function_name: function name like list_buckets
-    :param function_name: processed result
+    :param result: processed result
     :param format_type: csv or json
     :param output_path: user provided output_path to save file
     :param func_dir_path: invoking file directory path
     :response_format:FORMAT_1,FORMAT_2,FORMAT_3
-    :return: formatted list of comma seperated string
+    :return: formatted list of comma separated string
     """
     if output_to == "print":
         return json_util.print_csv_response(result)

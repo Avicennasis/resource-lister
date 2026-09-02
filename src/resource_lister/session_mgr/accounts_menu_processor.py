@@ -19,7 +19,7 @@ def configure_master_arn_config():
     input_json["email"] = ""
     account_config_util.upsert_master_account(input_json)
     # Print statement to print output to command prompt
-    print("Master Account configured succesfully.")
+    print("Master Account configured successfully.")
     process_cfn_template()
 
 
@@ -36,7 +36,7 @@ def process_master_account():
         acounts_menu_configs.master_account_config, input_json)
     account_config_util.upsert_master_account(input_json)
     # Print statement to print output to command prompt
-    print("Master Account updated succesfully")
+    print("Master Account updated successfully")
     process_cfn_template()
 
 
@@ -46,7 +46,7 @@ def process_cfn_template():
     file_path = account_config_util.generate_cfn_template(
         master_account_config["master_account_role_arn"],
         master_account_config["child_account_assume_role_name"])
-    print("Cloudformation template generatd at location {} ".format(file_path))
+    print("Cloudformation template generated at location {} ".format(file_path))
 
 
 def process_list_child_accounts():
@@ -75,7 +75,7 @@ def process_upsert_child_account():
             print("Skipping child account which has same account_id as master account {} ".format(master_account_id))
 
     account_config_util.upsert_child_account(account_json_list)
-    input("Press Ok when you have succesfully the cloudformation template in accounts : \n ")
+    input("Press Ok when you have successfully deployed the cloudformation template in accounts : \n ")
 
 
 def modify_child_account():
@@ -88,7 +88,7 @@ def modify_child_account():
         print("Child account can't have same account_id as master account {}".format(master_account_id))
     else:
         account_config_util.modify_child_account(input_json)
-    print("Child Account  modified  succesfully")
+    print("Child Account  modified  successfully")
 
 
 def process_delete_child_account():
@@ -101,6 +101,6 @@ def process_delete_child_account():
         account_id = account_id.strip()
         account_json_list.append(account_id)
     account_config_util.delete_child_account(account_json_list)
-    print("Child Account  deleted  succesfully")
+    print("Child Account  deleted  successfully")
     print(
         "Please also delete the stack created by cloudformation template [cfn_child_account_template] in child account")
